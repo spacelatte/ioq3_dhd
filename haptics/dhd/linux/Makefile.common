@@ -1,0 +1,26 @@
+#  (C) 2001-2010 Force Dimension
+#  All Rights Reserved.
+
+
+# target
+CFG  = release
+OS   = lin
+ifeq ($(ARCH), )
+ARCH = $(shell echo `uname -m`)
+endif
+
+# library location
+BIN_DIR = $(TOP_DIR)/bin
+INC_DIR = $(TOP_DIR)/include
+LIB_DIR = $(TOP_DIR)/lib
+
+# common compiler flags
+CXX      = g++
+CXXFLAGS = -O3 -DLINUX -I$(INC_DIR)
+
+# common linker flags
+LDFLAGS += -L$(LIB_DIR)
+LDLIBS  += -lpthread -lusb-1.0 -lrt
+
+# platform-specific settings
+OPENGL_FLAGS = -lGL -lGLU -lglut

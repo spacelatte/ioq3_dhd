@@ -2903,3 +2903,131 @@ endif
 ifneq ($(findstring clean, $(MAKECMDGOALS)),)
 .NOTPARALLEL:
 endif
+
+
+
+#############################################################################
+# mert akengin // haptic integration
+#############################################################################
+
+#ar xv ../dhd.$(ARCH).a | sed 's/x - /$(DHD_ROOT)\/$(PLATFORM)\//g' | sed 's/\.o/\.o \\/g'
+
+DHD_OBJS = \
+	$(B)/$(DHD_ROOT)/dhd.o \
+	$(B)/$(DHD_ROOT)/dhdc.o \
+	$(B)/$(DHD_ROOT)/dhdCom.o \
+	$(B)/$(DHD_ROOT)/dhdComFalcon.o \
+	$(B)/$(DHD_ROOT)/dhdComPCI.o \
+	$(B)/$(DHD_ROOT)/dhdComUSB.o \
+	$(B)/$(DHD_ROOT)/dhdController.o \
+	$(B)/$(DHD_ROOT)/dhdDelta.o \
+	$(B)/$(DHD_ROOT)/dhdError.o \
+	$(B)/$(DHD_ROOT)/dhdPincher.o \
+	$(B)/$(DHD_ROOT)/dhdStylus.o \
+	$(B)/$(DHD_ROOT)/dhdTimeGuard.o \
+	$(B)/$(DHD_ROOT)/dhdWrist.o \
+	$(B)/$(DHD_ROOT)/dhdFalcon.o \
+	$(B)/$(DHD_ROOT)/dhdTranslator.o \
+	$(B)/$(DHD_ROOT)/dhdVelocityEstimator.o \
+	$(B)/$(DHD_ROOT)/OSDep.o \
+
+CC               = clang
+HAPTICS_CXX      = clang++
+
+HAPTICS_DIR      = haptics
+DHD_ROOT         = $(HAPTICS_DIR)/dhd
+HAPTICS_CXXFLAGS = -v -g -fPIC -fvisibility=default \
+	-stdlib=libstdc++ \
+	-I$(CDIR) \
+	-I$(CMDIR) \
+	-I$(DHD_ROOT) \
+	-I$(HAPTICS_DIR) \
+	-I$(DHD_ROOT)/$(PLATFORM) \
+	-I$(DHD_ROOT)/$(PLATFORM)/include \
+
+HAPTICS_LDFLAGS  = -L$(HAPTICS_DIR) -L$(B)/$(HAPTICS_DIR) \
+	-L$(DHD_ROOT) -L$(DHD_ROOT)/lib -L$(DHD_ROOT)/$(PLATFORM) \
+	-ldhd -lpthread -lstdc++
+
+HAPTICS_OBJ      = $(B)/$(HAPTICS_DIR)/libhaptics.a
+
+TARGETS := $(DHD_OBJS) $(HAPTICS_OBJ) $(TARGETS)
+
+HAPTICS_CFLAGS = -g -I$(HAPTICS_DIR) -I$(DHD_ROOT) -I$(CMDIR) -I$(CDIR)
+
+CFLAGS += $(HAPTICS_CFLAGS)
+CLIENT_CFLAGS += $(HAPTICS_CFLAGS)
+#BASEGAME_CFLAGS += $(HAPTICS_CFLAGS)
+
+LDFLAGS += -L$(B)/$(HAPTICS_DIR) -L$(DHD_ROOT)/$(PLATFORM) \
+	-lhaptics -ldhd -lstdc++
+
+#-lpthread -lusb-1.0
+#-lstdc++ -lhaptics -ldhd -lpthread -lusb-1.0
+
+OSX_CORE_SDK = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+
+#Q3CGVMOBJ += $(B)/$(HAPTICS_DIR)/haptics.asm
+#Q3CGVMOBJ := $(Q3CGOBJ) $(DHD_OBJS) $(B)/$(HAPTICS_DIR)/haptics.o
+
+ifneq (,$(findstring "$(PLATFORM)", "linux" "gnu_kfreebsd" "kfreebsd-gnu" "gnu"))
+	HAPTICS_CXXFLAGS += -DLINUX -DARCH_STRING=\"$(COMPILE_ARCH)\"
+	HAPTICS_LDFLAGS  += -L$(DHD_ROOT)/$(PLATFORM)/lib -lusb-1.0 -lrt
+	DHD_OBJS += $(B)/$(DHD_ROOT)/dhdDoc.o \
+				$(B)/$(DHD_ROOT)/dhdFalconWin32.o \
+				$(B)/$(DHD_ROOT)/dhdComUSB-INtime.o \
+				$(B)/$(DHD_ROOT)/dhdComUSB-libusb.o \
+				$(B)/$(DHD_ROOT)/dhdComUSB-QNX.o \
+				$(B)/$(DHD_ROOT)/dhdComUSB-WinUSB.o \
+
+$(B)/$(DHD_ROOT)/%.$(PLATFORM)-$(ARCH).a: $(DHD_ROOT)/$(PLATFORM)/lib%.a $(B)/$(DHD_ROOT)
+	cp $< $@
+endif
+
+ifeq ($(PLATFORM),darwin)
+	HAPTICS_CXXFLAGS += -DAPPLE -arch $(COMPILE_ARCH)
+	HAPTICS_LDFLAGS  += -arch $(ARCH) -stdlib=libstdc++ \
+		-L$(DHD_ROOT)/$(PLATFORM)/build
+		-F$(HAPTICS_DIR) \
+		-F$(DHD_ROOT) \
+		-F$(DHD_ROOT)/$(PLATFORM) \
+		-F$(DHD_ROOT)/$(PLATFORM)/build \
+		-framework CoreFoundation -framework IOKit \
+		-mmacosx-version-min=10.6 -isysroot \
+		$(OSX_CORE_SDK)
+	DHD_OBJS += $(B)/$(DHD_ROOT)/dhdComUSB-IOKit.o
+
+	LDFLAGS += -F$(HAPTICS_DIR) -F$(DHD_ROOT) \
+		-framework CoreFoundation -framework IOKit
+
+$(B)/$(DHD_ROOT)/%.$(PLATFORM)-$(ARCH).a: $(DHD_ROOT)/$(PLATFORM)/lib%.a $(B)/$(DHD_ROOT)
+		lipo -thin $(ARCH) $< -output $@
+endif
+
+$(B)/$(DHD_ROOT)/%.o: $(B)/$(DHD_ROOT)/dhd.$(PLATFORM)-$(ARCH).a $(B)/$(DHD_ROOT)
+	ar x $< $$(basename $@)
+	mv $$(basename $@) $@
+
+$(B)/$(HAPTICS_DIR)/%.asm: $(HAPTICS_DIR)/%.c $(Q3LCC)
+	$(Q3LCC) $(BASEGAME_CFLAGS) -DCGAME -v -o $@ $<
+	exit 1
+
+$(B)/$(HAPTICS_DIR)/lib%.a: $(B)/$(HAPTICS_DIR)/%.o
+	ar rcs $@ $<
+	ranlib $@
+
+$(B)/$(HAPTICS_DIR)/%.o: $(HAPTICS_DIR)/%.cpp $(B)/$(HAPTICS_DIR)
+	$(HAPTICS_CXX) $(HAPTICS_CXXFLAGS) -c -o $@ $<
+
+$(B)/$(HAPTICS_DIR) $(B)/$(DHD_ROOT):
+	-$(MKDIR) -p $(B)/$(HAPTICS_DIR)
+	-$(MKDIR) -p $(B)/$(DHD_ROOT)
+
+Q3RUNFLAGS = +set vm_game 0 +set vm_cgame 0 +set vm_ui 0
+
+makedirs: $(B)/$(HAPTICS_DIR)
+test: fixes release run
+run: release
+	$(BR)/$(CLIENTBIN)$(FULLBINEXT) $(Q3RUNFLAGS) +map q3dm1
+fixes:
+	-rm $(BR)/$(CLIENTBIN)$(FULLBINEXT)

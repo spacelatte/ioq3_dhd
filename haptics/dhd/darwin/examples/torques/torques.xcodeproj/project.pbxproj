@@ -1,0 +1,222 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		963DD2331028DF720048DF89 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963DD2321028DF720048DF89 /* OpenGL.framework */; };
+		963DD23C1028DF8C0048DF89 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963DD23B1028DF8C0048DF89 /* GLUT.framework */; };
+		967697E10FA31243008FEA16 /* torques.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967697E00FA31243008FEA16 /* torques.cpp */; };
+		967EF91A1029418B00821EF0 /* CMacrosGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967EF9141029418B00821EF0 /* CMacrosGL.cpp */; };
+		967EF91B1029418B00821EF0 /* CMaths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967EF9161029418B00821EF0 /* CMaths.cpp */; };
+		96FF30E20FBCE83A00F259B8 /* libdhd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FF30E10FBCE83A00F259B8 /* libdhd.a */; };
+		96FF30EF0FBCE8D700F259B8 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FF30EE0FBCE8D700F259B8 /* CoreFoundation.framework */; };
+		96FF30F10FBCE8DD00F259B8 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FF30F00FBCE8DD00F259B8 /* IOKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F690486A84900D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8DD76F6C0486A84900D96B5E /* torques */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = torques; sourceTree = BUILT_PRODUCTS_DIR; };
+		963DD2321028DF720048DF89 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		963DD23B1028DF8C0048DF89 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		967697E00FA31243008FEA16 /* torques.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = torques.cpp; sourceTree = "<group>"; };
+		967EF9131029418B00821EF0 /* CConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CConstants.h; sourceTree = "<group>"; };
+		967EF9141029418B00821EF0 /* CMacrosGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMacrosGL.cpp; sourceTree = "<group>"; };
+		967EF9151029418B00821EF0 /* CMacrosGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMacrosGL.h; sourceTree = "<group>"; };
+		967EF9161029418B00821EF0 /* CMaths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMaths.cpp; sourceTree = "<group>"; };
+		967EF9171029418B00821EF0 /* CMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMaths.h; sourceTree = "<group>"; };
+		967EF9181029418B00821EF0 /* CMatrix3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMatrix3d.h; sourceTree = "<group>"; };
+		967EF9191029418B00821EF0 /* CVector3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVector3d.h; sourceTree = "<group>"; };
+		96FF30E10FBCE83A00F259B8 /* libdhd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libdhd.a; path = ../../build/libdhd.a; sourceTree = SOURCE_ROOT; };
+		96FF30EE0FBCE8D700F259B8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		96FF30F00FBCE8DD00F259B8 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F660486A84900D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96FF30E20FBCE83A00F259B8 /* libdhd.a in Frameworks */,
+				96FF30EF0FBCE8D700F259B8 /* CoreFoundation.framework in Frameworks */,
+				96FF30F10FBCE8DD00F259B8 /* IOKit.framework in Frameworks */,
+				963DD2331028DF720048DF89 /* OpenGL.framework in Frameworks */,
+				963DD23C1028DF8C0048DF89 /* GLUT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* torques */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				96FF30E10FBCE83A00F259B8 /* libdhd.a */,
+				96FF30EE0FBCE8D700F259B8 /* CoreFoundation.framework */,
+				96FF30F00FBCE8DD00F259B8 /* IOKit.framework */,
+				963DD2321028DF720048DF89 /* OpenGL.framework */,
+				963DD23B1028DF8C0048DF89 /* GLUT.framework */,
+			);
+			name = torques;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				967EF9131029418B00821EF0 /* CConstants.h */,
+				967EF9141029418B00821EF0 /* CMacrosGL.cpp */,
+				967EF9151029418B00821EF0 /* CMacrosGL.h */,
+				967EF9161029418B00821EF0 /* CMaths.cpp */,
+				967EF9171029418B00821EF0 /* CMaths.h */,
+				967EF9181029418B00821EF0 /* CMatrix3d.h */,
+				967EF9191029418B00821EF0 /* CVector3d.h */,
+				967697E00FA31243008FEA16 /* torques.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76F6C0486A84900D96B5E /* torques */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F620486A84900D96B5E /* torques */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "torques" */;
+			buildPhases = (
+				8DD76F640486A84900D96B5E /* Sources */,
+				8DD76F660486A84900D96B5E /* Frameworks */,
+				8DD76F690486A84900D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = torques;
+			productInstallPath = "$(HOME)/bin";
+			productName = torques;
+			productReference = 8DD76F6C0486A84900D96B5E /* torques */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "torques" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* torques */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F620486A84900D96B5E /* torques */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F640486A84900D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967697E10FA31243008FEA16 /* torques.cpp in Sources */,
+				967EF91A1029418B00821EF0 /* CMacrosGL.cpp in Sources */,
+				967EF91B1029418B00821EF0 /* CMaths.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB923208733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = torques;
+			};
+			name = Debug;
+		};
+		1DEB923308733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = torques;
+			};
+			name = Release;
+		};
+		1DEB923608733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = APPLE;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = ../../include;
+				SDKROOT = macosx10.6;
+				SYMROOT = ../../build;
+			};
+			name = Debug;
+		};
+		1DEB923708733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
+				GCC_PREPROCESSOR_DEFINITIONS = APPLE;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = ../../include;
+				SDKROOT = macosx10.6;
+				SYMROOT = ../../build;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "torques" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923208733DC60010E9CD /* Debug */,
+				1DEB923308733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "torques" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923608733DC60010E9CD /* Debug */,
+				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

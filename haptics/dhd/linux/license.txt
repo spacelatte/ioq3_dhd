@@ -1,0 +1,41 @@
+License agreement for Force Dimension DHD-API
+
+YOU MUST AGREE TO THESE TERMS BEFORE YOU DOWNLOAD OR USE THIS PROGRAM. ANY SUCH USE OR DOWNLOADING INDICATES YOUR ACCEPTANCE OF THESE TERMS.
+
+Force Dimension grants you a license to use the DHD-API. The DHD-API is copyrighted and licensed. Force Dimension does not transfer title to the DHD-API to you. You obtain no rights other than those granted under this license.
+
+Under this license, you may:
+
+   1. Use the DHD-API on one or more machines at a time;
+   2. Make copies of the DHD-API for use or backup purposes within your enterprise.
+
+You may NOT sublicense, rent, lease, or assign the DHD-API.
+
+Except as expressly stated above, Force Dimension grants no other licenses, express or implied, by estoppel or otherwise, to any intellectual property rights.
+
+LIMITED LIABILITY
+
+Under no circumstances is Force Dimension liable for any of the following, even if Force Dimension is informed of their possibility:
+
+   1. third party claims against you for losses or damages;
+   2. loss of, or damage to, your records or data; or
+   3. economic consequential damages (including lost profits or savings) or incremental damages.
+   4. punitive or non-compensatory damages of any sort
+
+NO WARRANTIES
+
+THIS PROGRAM IS PROVIDED "AS IS." FORCE DIMENSION DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+Force Dimension does not warrant uninterrupted or error free operation of the API.
+
+Some jurisdictions do not allow the exclusion of implied warranties or limits on liability, so the above exclusions may not apply to you.
+
+Force Dimension has no obligation to provide service, defect correction, or any maintenance for the DHD-API. Force Dimension has no obligation to supply any DHD-API updates or enhancements to you even if such are or later become available.
+
+You may terminate this license at any time. Force Dimension may terminate this license if you fail to comply with any of its terms. In either event, you must destroy all your copies of the DHD-API.
+
+You are responsible for the payment of any taxes resulting from this license.
+
+You may not sell, transfer, assign, or subcontract any of your rights or obligations under this license. Any attempt to do so is void. No licensee may bring a legal action more than two years after the cause of action arose.
+
+You hereby waive your right to a trial by jury and agree that any action arising from the relationship of the parties to this license shall be decided by a court without a jury.

@@ -1,0 +1,236 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		967697E10FA31243008FEA16 /* reflections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967697E00FA31243008FEA16 /* reflections.cpp */; };
+		967698AD0FA33548008FEA16 /* CMacrosGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967698AA0FA33548008FEA16 /* CMacrosGL.cpp */; };
+		967698AE0FA33548008FEA16 /* CMaths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967698AB0FA33548008FEA16 /* CMaths.cpp */; };
+		967698AF0FA33548008FEA16 /* CTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967698AC0FA33548008FEA16 /* CTexture.cpp */; };
+		967698BE0FA335AB008FEA16 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967698BD0FA335AB008FEA16 /* GLUT.framework */; };
+		967698C20FA335B8008FEA16 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967698C10FA335B8008FEA16 /* OpenGL.framework */; };
+		96FF30FF0FBCE91100F259B8 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FF30FE0FBCE91100F259B8 /* CoreFoundation.framework */; };
+		96FF31010FBCE91600F259B8 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FF31000FBCE91600F259B8 /* IOKit.framework */; };
+		96FF31060FBCE98A00F259B8 /* libdhd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FF31050FBCE98A00F259B8 /* libdhd.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F690486A84900D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8DD76F6C0486A84900D96B5E /* reflections */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = reflections; sourceTree = BUILT_PRODUCTS_DIR; };
+		967697E00FA31243008FEA16 /* reflections.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = reflections.cpp; path = ./reflections.cpp; sourceTree = "<group>"; };
+		967698AA0FA33548008FEA16 /* CMacrosGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMacrosGL.cpp; path = ./CMacrosGL.cpp; sourceTree = "<group>"; };
+		967698AB0FA33548008FEA16 /* CMaths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMaths.cpp; path = ./CMaths.cpp; sourceTree = "<group>"; };
+		967698AC0FA33548008FEA16 /* CTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CTexture.cpp; path = ./CTexture.cpp; sourceTree = "<group>"; };
+		967698B20FA33579008FEA16 /* CConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CConstants.h; path = ./CConstants.h; sourceTree = "<group>"; };
+		967698B30FA33579008FEA16 /* CMacrosGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMacrosGL.h; path = ./CMacrosGL.h; sourceTree = "<group>"; };
+		967698B40FA33579008FEA16 /* CMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMaths.h; path = ./CMaths.h; sourceTree = "<group>"; };
+		967698B50FA33579008FEA16 /* CMatrix3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMatrix3d.h; path = ./CMatrix3d.h; sourceTree = "<group>"; };
+		967698B60FA33579008FEA16 /* CTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTexture.h; path = ./CTexture.h; sourceTree = "<group>"; };
+		967698B70FA33579008FEA16 /* CVector3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CVector3d.h; path = ./CVector3d.h; sourceTree = "<group>"; };
+		967698BD0FA335AB008FEA16 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		967698C10FA335B8008FEA16 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		96FF30FE0FBCE91100F259B8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		96FF31000FBCE91600F259B8 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		96FF31050FBCE98A00F259B8 /* libdhd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdhd.a; path = ../../build/libdhd.a; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F660486A84900D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967698BE0FA335AB008FEA16 /* GLUT.framework in Frameworks */,
+				967698C20FA335B8008FEA16 /* OpenGL.framework in Frameworks */,
+				96FF30FF0FBCE91100F259B8 /* CoreFoundation.framework in Frameworks */,
+				96FF31010FBCE91600F259B8 /* IOKit.framework in Frameworks */,
+				96FF31060FBCE98A00F259B8 /* libdhd.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* reflections */ = {
+			isa = PBXGroup;
+			children = (
+				96F10E6D0FB8EA67000DC068 /* Headers */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				96FF31050FBCE98A00F259B8 /* libdhd.a */,
+				96FF30FE0FBCE91100F259B8 /* CoreFoundation.framework */,
+				96FF31000FBCE91600F259B8 /* IOKit.framework */,
+				967698BD0FA335AB008FEA16 /* GLUT.framework */,
+				967698C10FA335B8008FEA16 /* OpenGL.framework */,
+			);
+			name = reflections;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				967698AA0FA33548008FEA16 /* CMacrosGL.cpp */,
+				967698AB0FA33548008FEA16 /* CMaths.cpp */,
+				967698AC0FA33548008FEA16 /* CTexture.cpp */,
+				967697E00FA31243008FEA16 /* reflections.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76F6C0486A84900D96B5E /* reflections */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96F10E6D0FB8EA67000DC068 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				967698B20FA33579008FEA16 /* CConstants.h */,
+				967698B30FA33579008FEA16 /* CMacrosGL.h */,
+				967698B40FA33579008FEA16 /* CMaths.h */,
+				967698B50FA33579008FEA16 /* CMatrix3d.h */,
+				967698B60FA33579008FEA16 /* CTexture.h */,
+				967698B70FA33579008FEA16 /* CVector3d.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F620486A84900D96B5E /* reflections */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "reflections" */;
+			buildPhases = (
+				8DD76F640486A84900D96B5E /* Sources */,
+				8DD76F660486A84900D96B5E /* Frameworks */,
+				8DD76F690486A84900D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = reflections;
+			productInstallPath = "$(HOME)/bin";
+			productName = reflections;
+			productReference = 8DD76F6C0486A84900D96B5E /* reflections */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "reflections" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* reflections */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F620486A84900D96B5E /* reflections */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F640486A84900D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967697E10FA31243008FEA16 /* reflections.cpp in Sources */,
+				967698AD0FA33548008FEA16 /* CMacrosGL.cpp in Sources */,
+				967698AE0FA33548008FEA16 /* CMaths.cpp in Sources */,
+				967698AF0FA33548008FEA16 /* CTexture.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB923208733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = reflections;
+			};
+			name = Debug;
+		};
+		1DEB923308733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = reflections;
+			};
+			name = Release;
+		};
+		1DEB923608733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = APPLE;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = ../../include;
+				SDKROOT = macosx10.6;
+				SYMROOT = ../../build;
+			};
+			name = Debug;
+		};
+		1DEB923708733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
+				GCC_PREPROCESSOR_DEFINITIONS = APPLE;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = ../../include;
+				SDKROOT = macosx10.6;
+				SYMROOT = ../../build;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "reflections" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923208733DC60010E9CD /* Debug */,
+				1DEB923308733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "reflections" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923608733DC60010E9CD /* Debug */,
+				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
