@@ -2961,6 +2961,7 @@ CLIENT_CFLAGS += $(HAPTICS_CFLAGS)
 
 LDFLAGS += -L$(B)/$(HAPTICS_DIR) -L$(DHD_ROOT)/$(PLATFORM) \
 	-lhaptics -ldhd -lstdc++
+CLIENT_LIBS += -I$(B)/$(HAPTICS_DIR) -lhaptics
 
 #-lpthread -lusb-1.0
 #-lstdc++ -lhaptics -ldhd -lpthread -lusb-1.0
