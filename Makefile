@@ -2951,7 +2951,7 @@ HAPTICS_LDFLAGS  = -L$(HAPTICS_DIR) -L$(B)/$(HAPTICS_DIR) \
 
 HAPTICS_OBJ      = $(B)/$(HAPTICS_DIR)/libhaptics.a
 
-TARGETS := $(DHD_OBJS) $(HAPTICS_OBJ) $(TARGETS)
+TARGETS := $(HAPTICS_OBJ) $(TARGETS)
 
 HAPTICS_CFLAGS = -g -I$(HAPTICS_DIR) -I$(DHD_ROOT) -I$(CMDIR) -I$(CDIR)
 
@@ -2986,7 +2986,7 @@ endif
 
 ifeq ($(PLATFORM),darwin)
 	HAPTICS_CXXFLAGS += -DAPPLE -arch $(COMPILE_ARCH)
-	HAPTICS_LDFLAGS  += -arch $(ARCH) -stdlib=libstdc++ \
+	HAPTICS_LDFLAGS  += -arch $(ARCH) \
 		-L$(DHD_ROOT)/$(PLATFORM)/build
 		-F$(HAPTICS_DIR) \
 		-F$(DHD_ROOT) \
@@ -3010,7 +3010,7 @@ $(B)/$(DHD_ROOT)/%.o: $(B)/$(DHD_ROOT)/dhd.$(PLATFORM)-$(ARCH).a $(B)/$(DHD_ROOT
 
 $(B)/$(HAPTICS_DIR)/%.asm: $(HAPTICS_DIR)/%.c $(Q3LCC)
 	$(Q3LCC) $(BASEGAME_CFLAGS) -DCGAME -v -o $@ $<
-	exit 1
+	exit 1 #fail intentionally
 
 $(B)/$(HAPTICS_DIR)/lib%.a: $(B)/$(HAPTICS_DIR)/%.o
 	ar rcs $@ $<
