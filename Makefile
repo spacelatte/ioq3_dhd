@@ -2959,10 +2959,8 @@ CFLAGS += $(HAPTICS_CFLAGS)
 CLIENT_CFLAGS += $(HAPTICS_CFLAGS)
 #BASEGAME_CFLAGS += $(HAPTICS_CFLAGS)
 
-LDFLAGS += -L$(B)/$(HAPTICS_DIR) -L$(DHD_ROOT)/$(PLATFORM) \
-	-lhaptics -ldhd -lstdc++
-CLIENT_LDFLAGS += -L$(B)/$(HAPTICS_DIR) -L$(DHD_ROOT) -L$(DHD_ROOT)/$(PLATFORM) \
-	-lstdc++ -lhaptics -ldhd -lpthread
+LDFLAGS += -v -L$(B)/$(HAPTICS_DIR) -L$(DHD_ROOT)/$(PLATFORM)
+CLIENT_LIBS += -lhaptics -ldhd -lstdc++ -lpthread
 
 #-lpthread -lusb-1.0
 #-lstdc++ -lhaptics -ldhd -lpthread -lusb-1.0
@@ -2975,6 +2973,7 @@ OSX_CORE_SDK = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platf
 ifneq (,$(findstring "$(PLATFORM)", "linux" "gnu_kfreebsd" "kfreebsd-gnu" "gnu"))
 	HAPTICS_CXXFLAGS += -DLINUX -DARCH_STRING=\"$(COMPILE_ARCH)\"
 	HAPTICS_LDFLAGS  += -L$(DHD_ROOT)/$(PLATFORM)/lib -lusb-1.0 -lrt
+	CLIENT_LIBS += -lusb-1.0 -lrt
 	DHD_OBJS += $(B)/$(DHD_ROOT)/dhdDoc.o \
 				$(B)/$(DHD_ROOT)/dhdFalconWin32.o \
 				$(B)/$(DHD_ROOT)/dhdComUSB-INtime.o \
