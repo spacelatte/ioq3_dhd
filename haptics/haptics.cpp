@@ -38,7 +38,7 @@ void haptic_init()
 {
 	int i,major, minor, release, revision;
 	dhdGetAPIVersion (&major, &minor, &release, &revision);
-	Com_Printf ("Force Dimension - Gravity Compensation Example %d.%d.%d.%d\n", major, minor, release, revision);
+	Com_Printf ("Force Dimension - %d.%d.%d.%d\n", major, minor, release, revision);
 	Com_Printf ("(C) 2010 Force Dimension\n");
 	Com_Printf ("All Rights Reserved.\n\n");
 	//Com_Printf ("%s device detected\n\n", dhdGetSystemName());
@@ -209,7 +209,7 @@ void haptic_getf(double *arr)
 #include <client.h>
 void haptic_dealwith(cvar_t **arr, usercmd_t *cmd, float *va, void *btns)
 {
-	if(!arr || !arr[0] || !(arr[0]->value) || !cmd || !va || !btns)
+	if(!arr || !arr[0] || !(arr[0]->value) || !cmd || !va || !btns || va == NULL)
 		return;
 	if(!haptic_ok)
 		return;
