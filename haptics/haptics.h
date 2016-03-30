@@ -14,7 +14,7 @@ extern "C" {
 	#include <q_shared.h>
 
 	extern unsigned cnt;
-	extern double axes[AXES];
+	//extern double axes[AXES];
 	extern const double _fixes[AXES];
 	extern double haptic_offsets[AXES];
 

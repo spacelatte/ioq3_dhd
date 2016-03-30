@@ -19,8 +19,8 @@ extern "C" {
 
 //static cvar_t *in_haptic = NULL;
 unsigned cnt = 0;
+//double axes[AXES];
 static bool haptic_ok = false;
-double axes[AXES];
 const double _fixes[AXES] = {2,1,2};
 double haptic_offsets[AXES] = {0,0,0};
 static double lt = 0;
@@ -84,10 +84,7 @@ void haptic_getpos(double *arr)
 		return;
 	}else
 		lt = dhdGetTime();
-	if(arr == NULL)
-		dhdGetPosition(&axes[0],&axes[1],&axes[2],DHD);
-	else
-		dhdGetPosition(&arr[0],&arr[1],&arr[2],DHD);
+	dhdGetPosition(&arr[0],&arr[1],&arr[2],DHD);
 	return;
 }
 
@@ -137,7 +134,7 @@ void haptic_move(float *angles, double m)
 		return;
 	for(i=0;i<AXES-1;i++)
 		//if(axes[_vf[i]] > _dz[_vf[i]][0] || axes[_vf[i]] < _dz[_vf[i]][1])
-			angles[i] -= (float)(m*axes[_vf[i]]);
+			angles[i] -= (float)(m*angles[_vf[i]]);
 	// + _movfix[i];
 	return;
 }
@@ -177,7 +174,7 @@ void haptic_print(double *arr, const char *tag)
 
 float haptic_axis(char axis, float m)
 {
-	static double xyz[AXES];
+	double xyz[AXES];
 	if(!haptic_ok)
 		return 0;
 	dhdGetPosition(&xyz[0],&xyz[1],&xyz[2],DHD);
@@ -228,6 +225,8 @@ void haptic_dealwith(cvar_t **arr, usercmd_t *cmd, float *va, void *btns)
 			cnt -= 1;
 		if(((kbutton_t*)btns)[0].active && cnt < 5)
 			cnt += (rand()%5)+3;
+		if(!arr[1] || !arr[2])
+			return;
 		haptic_move(va,(arr[2]->value)*15.0);
 		//in_speed.active = qtrue;
 		if(arr[1]->value)
