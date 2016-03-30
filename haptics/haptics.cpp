@@ -36,16 +36,25 @@ const double _dz[AXES][2] = {
 #include <qcommon.h>
 void haptic_init()
 {
-	int i;
+	int i,major, minor, release, revision;
+	dhdGetAPIVersion (&major, &minor, &release, &revision);
+	Com_Printf ("Force Dimension - Gravity Compensation Example %d.%d.%d.%d\n", major, minor, release, revision);
+	Com_Printf ("(C) 2010 Force Dimension\n");
+	Com_Printf ("All Rights Reserved.\n\n");
+	//Com_Printf ("%s device detected\n\n", dhdGetSystemName());
 	if(haptic_ok)
 		return;
 	for(i=0;i<AXES;i++)
 		axes[i] = 0;
-	haptic_ok = !(dhdOpen() < 0);
+	//haptic_ok = !(dhdOpen() < 0);
+	i = dhdOpen();
+	if(i >= 0)
+		haptic_ok = true;
+	Com_Printf("%s\r\n",dhdErrorGetLastStr());
 	if(!haptic_ok)
 		return;
 	//dhdReset(DHD);
-	dhdWaitForReset(0,DHD);
+//	dhdWaitForReset(0,DHD);
 	dhdSetGravityCompensation(DHD_ON,DHD);
 	dhdSetForce(0,0,0,DHD);
 	return;
@@ -61,7 +70,7 @@ void haptic_close()
 }
 
 #define RI 0.01
-void haptic_getpos(double arr[AXES])
+void haptic_getpos(double *arr)
 {
 	int i;
 	if(!haptic_ok)
@@ -82,7 +91,7 @@ void haptic_getpos(double arr[AXES])
 	return;
 }
 
-void haptic_force(double forces[AXES])
+void haptic_force(double *forces)
 {
 	int i;
 	if(!haptic_ok)
@@ -119,7 +128,7 @@ void haptic_fire(unsigned f)
 	return;
 }
 
-void haptic_move(float angles[AXES], double m)
+void haptic_move(float *angles, double m)
 {
 	int i;
 	if(!haptic_ok)
@@ -151,7 +160,7 @@ void haptic_wait(float f)
 	return;
 }
 
-void haptic_print(double arr[AXES], const char *tag)
+void haptic_print(double *arr, const char *tag)
 {
 	int i;
 	if(!haptic_ok)
@@ -175,7 +184,7 @@ float haptic_axis(char axis, float m)
 	return (float)(xyz[axis%AXES] * m);
 }
 
-void haptic_joystick(double arr[AXES], unsigned p)
+void haptic_joystick(double *arr, unsigned p)
 {
 	int i;
 	if(!haptic_ok)
@@ -189,7 +198,7 @@ void haptic_joystick(double arr[AXES], unsigned p)
 	return;
 }
 
-void haptic_getf(double arr[AXES])
+void haptic_getf(double *arr)
 {
 	int i;
 	if(!haptic_ok)
@@ -203,8 +212,7 @@ void haptic_getf(double arr[AXES])
 #include <client.h>
 void haptic_dealwith(cvar_t **arr, usercmd_t *cmd, float *va, void *btns)
 {
-	int i;
-	if(!(arr[0]->value))
+	if(!arr || !arr[0] || !(arr[0]->value) || !cmd || !va || !btns)
 		return;
 	if(!haptic_ok)
 		return;

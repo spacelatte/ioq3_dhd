@@ -20,17 +20,17 @@ extern "C" {
 
 	void haptic_init(void);
 	void haptic_close(void);
-	void haptic_getpos(double[AXES]);
-	void haptic_force(double[AXES]);
+	void haptic_getpos(double*);
+	void haptic_force(double*);
 	char haptic_btn(void);
 	void haptic_fire(unsigned);
-	void haptic_move(float[AXES],double);
+	void haptic_move(float*,double);
 	char haptic_press(char);
 	void haptic_wait(float);
-	void haptic_print(double[AXES],const char*);
+	void haptic_print(double*,const char*);
 	float haptic_axis(char,float);
-	void haptic_joystick(double[AXES],unsigned);
-	void haptic_getf(double[AXES]);
+	void haptic_joystick(double*,unsigned);
+	void haptic_getf(double*);
 	void haptic_dealwith(cvar_t**,usercmd_t*,float*,void*);
 
 #ifdef __cplusplus

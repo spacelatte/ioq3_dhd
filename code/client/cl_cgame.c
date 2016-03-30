@@ -770,7 +770,7 @@ void CL_InitCGame( void ) {
 	// clear anything that got printed
 	Con_ClearNotify ();
 	//haptic_init();
-	haptic_wait(-1);
+	//haptic_wait(-1);
 }
 
 
