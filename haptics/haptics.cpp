@@ -222,7 +222,8 @@ void haptic_dealwith(cvar_t **arr, usercmd_t *cmd, float *va, void *btns)
 	{
 		//char fire = haptic_press(2);
 		//char jump = haptic_press(0);
-		((kbutton_t*)btns)[0].active = (qboolean)haptic_btn();
+		for(i=0;i<BTN_CNT;i++)
+			((kbutton_t*)btns)[i].active = (qboolean)(haptic_btn() == 1<<i);
 		if(cnt > 0)
 			cnt -= 1;
 		if(((kbutton_t*)btns)[0].active && cnt < 5)
