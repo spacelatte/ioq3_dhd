@@ -570,6 +570,8 @@ CL_CreateCmd
 =================
 */
 #include <haptics.h>
+extern haptic_t *buf;
+
 usercmd_t CL_CreateCmd( void ) {
 	usercmd_t	cmd;
 	vec3_t		oldAngles;

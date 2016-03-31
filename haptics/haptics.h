@@ -21,10 +21,10 @@ extern "C" {
 
 	extern haptic_t *buf;
 
-	extern unsigned cnt;
-	extern double axes[AXES];
-	extern const double _fixes[AXES];
-	extern double haptic_offsets[AXES];
+	//extern unsigned cnt;
+	//extern double axes[AXES];
+	//extern const double _fixes[AXES];
+	//extern double haptic_offsets[AXES];
 
 	void haptic_init(void);
 	void haptic_close(void);
