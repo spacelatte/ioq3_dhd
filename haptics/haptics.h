@@ -13,8 +13,16 @@ extern "C" {
 
 	#include <q_shared.h>
 
+	typedef struct {
+		float views[AXES];
+		char buttons[BTN_CNT];
+		char fmove;
+	} haptic_t;
+
+	extern haptic_t *buf;
+
 	extern unsigned cnt;
-	//extern double axes[AXES];
+	extern double axes[AXES];
 	extern const double _fixes[AXES];
 	extern double haptic_offsets[AXES];
 
@@ -32,6 +40,7 @@ extern "C" {
 	void haptic_joystick(double*,unsigned);
 	void haptic_getf(double*);
 	void haptic_dealwith(cvar_t**,usercmd_t*,float*,void*);
+	void haptic_stuff(cvar_t);
 
 #ifdef __cplusplus
 }

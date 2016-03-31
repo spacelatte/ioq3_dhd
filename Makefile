@@ -3031,4 +3031,5 @@ test: fixes release run
 run: release
 	$(BR)/$(CLIENTBIN)$(FULLBINEXT) $(Q3RUNFLAGS) +map q3dm1
 fixes:
+	-for i in /usr/share/games/quake3/baseq3/*.pk3; do ln -s $$i $(BR)/$(BASEGAME)/; done
 	-rm $(BR)/$(CLIENTBIN)$(FULLBINEXT)

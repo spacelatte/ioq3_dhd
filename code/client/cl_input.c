@@ -595,8 +595,19 @@ usercmd_t CL_CreateCmd( void ) {
 	// mert akengin
 	cvar_t *in_haptics = Cvar_Get("in_haptic","1",CVAR_ARCHIVE);
 	cvar_t *in_haptics_move = Cvar_Get("in_haptic_move","0",CVAR_ARCHIVE);
-	cvar_t *haptic_cvars[AXES] = { in_haptics, in_haptics_move, cl_sensitivity };
-	haptic_dealwith(haptic_cvars,&cmd,(cl.viewangles),in_buttons);
+	//cvar_t *haptic_cvars[AXES] = { in_haptics, in_haptics_move, cl_sensitivity };
+	//haptic_dealwith(haptic_cvars,&cmd,(cl.viewangles),in_buttons);
+	haptic_stuff(*cl_sensitivity);
+	if(buf != NULL && in_haptics->value)
+	{
+		for(int i=0;i<BTN_CNT;i++)
+			in_buttons[i].active = buf->buttons[i];
+		if(in_haptics_move->value)
+			cmd.forwardmove = buf->fmove;
+		if(in_haptics->value)
+			for(int i=0;i<AXES;i++)
+				cl.viewangles[i] += buf->views[i];
+	}
 
 	// check to make sure the angles haven't wrapped
 	if ( cl.viewangles[PITCH] - oldAngles[PITCH] > 90 ) {

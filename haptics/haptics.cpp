@@ -18,8 +18,9 @@ extern "C" {
 #endif
 
 //static cvar_t *in_haptic = NULL;
+haptic_t *buf = NULL;
 unsigned cnt = 0;
-//double axes[AXES];
+double axes[AXES];
 static bool haptic_ok = false;
 const double _fixes[AXES] = {2,1,2};
 double haptic_offsets[AXES] = {0,0,0};
@@ -44,6 +45,14 @@ void haptic_init()
 	//Com_Printf ("%s device detected\n\n", dhdGetSystemName());
 	if(haptic_ok)
 		return;
+	buf = (haptic_t*)malloc(sizeof(haptic_t));
+	{
+		buf->fmove = 0;
+		for(i=0;i<AXES;i++)
+			buf->views[i] = 0;
+		for(i=0;i<BTN_CNT;i++)
+			buf->buttons[i] = 0;
+	}
 	for(i=0;i<AXES;i++)
 		axes[i] = 0;
 	//haptic_ok = !(dhdOpen() < 0);
@@ -66,6 +75,8 @@ void haptic_close()
 		return;
 	dhdClose(DHD);
 	haptic_ok = false;
+	free(buf);
+	buf = NULL;
 	return;
 }
 
@@ -104,7 +115,7 @@ void haptic_force(double *forces)
 	return;
 }
 
-char haptic_btn()
+char haptic_btn(void)
 {
 	char res = 0;
 	int i;
@@ -209,6 +220,7 @@ void haptic_getf(double *arr)
 #include <client.h>
 void haptic_dealwith(cvar_t **arr, usercmd_t *cmd, float *va, void *btns)
 {
+	int i;
 	if(!arr || !arr[0] || !(arr[0]->value) || !cmd || !va || !btns || va == NULL)
 		return;
 	if(!haptic_ok)
@@ -244,6 +256,32 @@ void haptic_dealwith(cvar_t **arr, usercmd_t *cmd, float *va, void *btns)
 			haptic_force(axes);
 		}
 	}
+	return;
+}
+
+void haptic_stuff(cvar_t sens)
+{
+	int i;
+	if(!haptic_ok)
+		return;
+	haptic_getpos(axes);
+	if(axes[0] == 0 && axes[1] == 0 && axes[2] == 0)
+		return;
+	for(i=0;i<BTN_CNT;i++)
+		buf->buttons[i] = (char)(haptic_btn() == 1<<i);
+	if(cnt > 0)
+		cnt -= 1;
+	if(buf->buttons[0] && cnt < 5)
+		cnt += (rand()%5)+3;
+	haptic_move(buf->views,(sens.value)*15.0);
+	double Y = axes[0]*100;
+	if(Y < 1.0 && Y > -1.0)
+		Y = 0;
+	else
+		Y *= -32.0;
+	buf->fmove = ClampChar(Y);
+	haptic_joystick(axes,cnt);
+	haptic_force(axes);
 	return;
 }
 
