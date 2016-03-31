@@ -2947,7 +2947,7 @@ HAPTICS_CXXFLAGS = -v -g -fPIC -fvisibility=default \
 
 HAPTICS_LDFLAGS  = -L$(HAPTICS_DIR) -L$(B)/$(HAPTICS_DIR) \
 	-L$(DHD_ROOT) -L$(DHD_ROOT)/lib -L$(DHD_ROOT)/$(PLATFORM) \
-	-L$(DHD_ROOT)/$(PLATFORM)/build -L -L$(DHD_ROOT)/$(PLATFORM)/lib \
+	-L$(DHD_ROOT)/$(PLATFORM)/build -L$(DHD_ROOT)/$(PLATFORM)/lib \
 	-ldhd -lpthread -lstdc++
 
 HAPTICS_OBJ      = $(B)/$(HAPTICS_DIR)/libhaptics.a
