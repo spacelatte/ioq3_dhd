@@ -274,8 +274,8 @@ void haptic_stuff(cvar_t sens)
 		cnt -= 1;
 	if(buf->buttons[0] && cnt < 5)
 		cnt += (rand()%5)+3;
-	for(i=1;i<AXES;i++)
-		buf->views[i-1] = (float)axes[i];
+	buf->views[1] = (float)axes[0];
+	buf->views[0] = (float)axes[1];
 	haptic_move(buf->views,(sens.value)*15.0);
 	double Y = axes[0]*100;
 	if(Y < 1.0 && Y > -1.0)
