@@ -2960,7 +2960,7 @@ CFLAGS += $(HAPTICS_CFLAGS)
 CLIENT_CFLAGS += $(HAPTICS_CFLAGS)
 #BASEGAME_CFLAGS += $(HAPTICS_CFLAGS)
 
-LDFLAGS += -v -L$(B)/$(HAPTICS_DIR) -L$(DHD_ROOT)/$(PLATFORM)
+LDFLAGS += -v -L$(B)/$(HAPTICS_DIR) -L$(DHD_ROOT)/$(PLATFORM) -L$(DHD_ROOT)/$(PLATFORM)/lib -L$(DHD_ROOT)/$(PLATFORM)/build
 CLIENT_LIBS += -lhaptics -ldhd -lstdc++ -lpthread
 
 #-lpthread -lusb-1.0
