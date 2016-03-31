@@ -19,8 +19,6 @@ extern "C" {
 		char fmove;
 	} haptic_t;
 
-	extern haptic_t *buf;
-
 	//extern unsigned cnt;
 	//extern double axes[AXES];
 	//extern const double _fixes[AXES];
@@ -29,7 +27,7 @@ extern "C" {
 	void haptic_init(void);
 	void haptic_close(void);
 	void haptic_getpos(double*);
-	void haptic_force(double*);
+	void haptic_force(double[AXES]);
 	char haptic_btn(void);
 	void haptic_fire(unsigned);
 	void haptic_move(float*,double);

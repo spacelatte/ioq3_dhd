@@ -265,7 +265,7 @@ void haptic_stuff(cvar_t sens)
 	int i;
 	if(!haptic_ok)
 		return;
-	haptic_getpos(axes);
+	dhdGetPosition(&axes[0],&axes[1],&axes[2],DHD);
 	if(axes[0] == 0 && axes[1] == 0 && axes[2] == 0)
 		return;
 	for(i=0;i<BTN_CNT;i++)
@@ -274,8 +274,13 @@ void haptic_stuff(cvar_t sens)
 		cnt -= 1;
 	if(buf->buttons[0] && cnt < 5)
 		cnt += (rand()%5)+3;
-	buf->views[1] = (float)axes[0];
-	buf->views[0] = (float)axes[1];
+	//haptic_print(axes,"sts");
+	// 0 -> down
+	// 1 -> right -> 3
+	buf->views[0] = (float)axes[2] * -15.0 * sens.value;
+	buf->views[1] = (float)axes[1];
+	//buf->views[0] = (float)axes[2];
+	//buf->views[1] = (float)axes[1];
 	haptic_move(buf->views,(sens.value)*15.0);
 	double Y = axes[0]*100;
 	if(Y < 1.0 && Y > -1.0)
